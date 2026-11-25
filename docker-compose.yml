@@ -1,0 +1,23 @@
+services:
+  api:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      INVENTORY_PATH: /app/data/inventory.json
+      DB_PATH: /data/mini_gauntlet.db
+      SCAN_WORKERS: "4"
+    volumes:
+      - ./data:/app/data:ro      # the snapshot, read-only
+      - db-data:/data            # SQLite database survives restarts
+
+  dashboard:
+    build: ./frontend
+    ports:
+      - "3000:8080"
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  db-data:

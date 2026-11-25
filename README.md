@@ -2,7 +2,7 @@
 
 A small cloud posture scanner. It reads a snapshot of AWS, Azure and GCP configuration (`data/inventory.json`), runs ten security checks over it, stores scans and findings in SQLite, serves them over a FastAPI REST API, and shows them in a React + TypeScript dashboard.
 
-**CI:** CI_RUN_LINK
+**CI:** [![CI](https://github.com/aadarsh012/mini-gauntlet/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/aadarsh012/mini-gauntlet/actions/workflows/ci.yml?query=branch%3Amain)
 
 ## Run it
 
